@@ -15,6 +15,7 @@
 var navList = document.getElementById("navbar__list");
 var sectionElements = document.getElementsByTagName('section');
 var sectionId=[];
+var clicked=false;
 //console.log(sectionElements[0].getAttribute('id'));
 for(let i=0;i<sectionElements.length;i++){
     sectionId[i] = sectionElements[i].getAttribute('id');
@@ -36,6 +37,7 @@ document.addEventListener(`click`, e => {
       e.preventDefault()
       var id = e.target.getAttribute("href");
       id = id.substring(1,);
+      clicked=true;
       let element = document.getElementById(id);
       element.scrollIntoView({
         behavior: "smooth"
@@ -55,11 +57,13 @@ document.addEventListener(`click`, e => {
     }
   });
 const clientHeight = document.documentElement.clientHeight;
+if(!clicked){
 document.addEventListener('scroll',function(e){
     e.preventDefault();
     highLight();
     //return true;
 });
+}
 function highLight(){
     let index=-1;
 for(let i=0;i<sectionElements.length;i++){
