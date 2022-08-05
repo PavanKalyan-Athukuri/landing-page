@@ -32,6 +32,7 @@ let items = navList.getElementsByTagName('li');
 document.addEventListener(`click`, e => {
 let index = -1;
 if (e.target.tagName.toLowerCase() === 'a') {
+    //let boundaryY = sectionElements[i].getBoundingClientRect();
 e.preventDefault();
 var id = e.target.getAttribute("href");
 id = id.substring(1, );
@@ -58,10 +59,12 @@ function highLight() {
 let index = -1;
 for (let i = 0; i < sectionElements.length; i++) {
 let boundaryY = sectionElements[i].getBoundingClientRect();
-if (boundaryY.bottom >= 0 || boundaryY.top >= clientHeight && boundaryY.right <= window.innerWidth && boundaryY.bottom <= window.innerHeight) {
+if (boundaryY.bottom >= 30 || boundaryY.top >= -5) {
 sectionElements[i].classList.add('your-active-class');
 index = i;
-console.log(boundaryY+"\n");
+console.log(i);
+console.log(boundaryY);
+//console.log(clientHeight);
 // console.log(i);
 // items[index].style.background = "black";
 removeUnnecessary(index);
