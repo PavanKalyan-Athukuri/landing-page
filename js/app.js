@@ -40,6 +40,7 @@ function highLight() {
         // Add class 'active' to section when near top of viewport
         if (boundaryY.bottom >= 30 || boundaryY.top >= -5) {
             sectionElements[i].classList.add('your-active-class');
+            items[i].style.background="black";
             index = i;
             removeUnnecessary(index);
             break;
@@ -52,6 +53,7 @@ function removeUnnecessary(index) {
     while (j < sectionElements.length) {
         if (index != j) {
         sectionElements[j].classList.remove('your-active-class');
+        items[j].style.background="";
         }
         j = j + 1;
     }
